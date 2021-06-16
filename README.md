@@ -8,6 +8,23 @@
 
 As required by the instructions, only the .txt files in the zip have been used (unlike previously where the `pytreebank` module was used).
 
+## Explanation of Files
+
+**`sentiment_labels.txt`:** This file contains the mapping of phrase ids (not the phrases) to the sentiments. The `pd.cut` method was used to categorize them into 5 discrete classes. The 'sentiments' are henceforth referred as 'labels'
+
+**`datasetSentences.txt`:** This file contains the sentences without any sentiments
+
+**`dictionary.txt`:** This file contains the mapping of phrases to their sentiments. After this file is loaded, the phrases are mapped to the sentences, followed by mapping to the (discrete) labels.
+
+**`datasetSplit.txt`:** This file contains the splitting of the dataset into train/test/dev set. Since we are only required to have a train/test split, this file is NOT used
+
+Using regular expressions, the sentences are 'cleaned'. Only these cleaned sentences and their labels are retained and other columns are dropped
+
+The final dataset has 11286 samples.
+
+## Data Split
+The data is split into train/test  sets using a 70/30 ratio.
+
 ## Model
 Almost the same model as presented in the orginal notebooks was used. 
 
@@ -20,26 +37,26 @@ I was able to get >>60% on the train dataset. Despite tinkering with the hyperpa
 #### Training Log
 |    epoch    |   Train Acc |  Train Loss |   Valid Acc |  Valid Loss |
 | ----------- | ----------- | ----------- | ----------- | ----------- | 
-|           1 |       26.38 |      1.5746 |      29.959 |      1.5603 |
-|           2 |      30.937 |      1.5308 |      32.546 |      1.5099 |
-|           3 |      37.785 |      1.4196 |      34.849 |      1.4888 |
-|           4 |      44.772 |      1.2915 |      36.799 |      1.4882 |
-|           5 |      50.911 |      1.1527 |       34.79 |      1.5626 |
-|           6 |      57.418 |      1.0284 |       36.06 |      1.6678 |
-|           7 |      63.481 |     0.90592 |      35.145 |      1.8482 |
-|           8 |      68.848 |     0.80195 |      35.145 |      1.9479 |
-|           9 |      73.684 |     0.70367 |      34.318 |      2.1228 |
-|          10 |      77.304 |     0.62305 |      34.702 |      2.2082 |
-|          11 |      79.734 |     0.56275 |      34.584 |      2.2721 |
-|          12 |      83.101 |     0.49089 |      34.111 |      2.4232 |
-|          13 |       85.38 |     0.43914 |       34.79 |      2.5672 |
-|          14 |      86.494 |     0.39876 |        34.2 |      2.6014 |
-|          15 |      88.304 |      0.3604 |      35.027 |      2.7519 |
-|          16 |      89.899 |     0.31924 |      34.111 |      2.8246 |
-|          17 |      90.911 |     0.28823 |      34.082 |      2.8982 |
-|          18 |      91.418 |     0.27154 |      33.786 |      2.9746 |
-|          19 |       92.43 |      0.2495 |      33.373 |       3.066 |
-|          20 |      92.658 |     0.23752 |      34.672 |      3.0495 |
+|           1 |       26.38 |      1.5746 |      30.018 |      1.5603 |
+|           2 |      30.886 |      1.5308 |      32.487 |        1.51 |
+|           3 |      37.709 |      1.4197 |      34.879 |      1.4888 |
+|           4 |       44.81 |      1.2915 |      36.799 |      1.4885 |
+|           5 |      50.962 |      1.1527 |       34.82 |       1.562 |
+|           6 |      57.532 |      1.0284 |      36.031 |      1.6687 |
+|           7 |      63.532 |     0.90568 |      35.204 |        1.85 |
+|           8 |      68.924 |     0.80161 |      35.145 |      1.9615 |
+|           9 |      73.595 |     0.70365 |      34.495 |      2.1086 |
+|          10 |      77.354 |     0.62018 |      35.263 |      2.1964 |
+|          11 |      80.241 |     0.55864 |       34.79 |      2.3029 |
+|          12 |      83.038 |     0.49319 |      34.672 |      2.4138 |
+|          13 |      85.848 |     0.43099 |      35.351 |      2.5511 |
+|          14 |      86.911 |     0.38719 |      33.579 |      2.6121 |
+|          15 |      88.481 |     0.35891 |      34.997 |      2.7361 |
+|          16 |      89.418 |     0.32695 |      34.406 |      2.8067 |
+|          17 |      91.025 |     0.29164 |      34.702 |      2.8948 |
+|          18 |      91.797 |     0.26694 |      34.377 |      2.9899 |
+|          19 |      92.253 |     0.25037 |      34.584 |      3.0636 |
+|          20 |      92.962 |     0.22841 |      34.584 |      3.0698 |
 
 #### Confusion Matrix
 ![Confusion Matrix](cm.png?raw=true "Backpropagation in Excels")
