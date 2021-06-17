@@ -60,14 +60,14 @@ I was able to get >>60% on the train dataset. Despite tinkering with the hyperpa
 |          20 |      91.608 |     0.29901 |      31.571 |      2.7736 |
 
 #### Confusion Matrix
-![Confusion Matrix](cm.png)
+![Confusion Matrix](cm1.png)
 
 #### Loss/Accuracy vs Epochs
-![Alt text](logs.png)
+![Alt text](logs1.png)
 
 
 ## Sample outcomes
 
 
-![samples](samples.png)
+![samples](samples1.png)
 
